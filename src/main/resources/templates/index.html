@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Counsellor Portal</title>
+<style>
+/* General Styles */
+body {
+	font-family: 'Poppins', sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #e3f2fd;
+	color: #333;
+}
+
+.container {
+	background: linear-gradient(135deg, #42a5f5, #1e88e5);
+	color: white;
+	padding: 2rem;
+	border-radius: 16px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	max-width: 450px;
+	width: 90%;
+	text-align: center;
+}
+
+h1 {
+	font-size: 2.2rem;
+	margin-bottom: 1rem;
+	color: #ffffff;
+}
+
+p {
+	font-size: 1rem;
+	color: #f0f0f0;
+	margin-bottom: 1.5rem;
+}
+
+.button-group {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 1.5rem;
+}
+
+.button {
+	display: inline-block;
+	padding: 0.8rem 1.8rem;
+	font-size: 1rem;
+	color: #1e88e5;
+	background-color: #ffffff;
+	border: none;
+	border-radius: 8px;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+	transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.button:hover {
+	transform: scale(1.1);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+	margin-top: 2rem;
+	font-size: 0.85rem;
+	color: #f0f0f0;
+}
+
+footer a {
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+footer a:hover {
+	text-decoration: none;
+}
+
+/* Additional Styling */
+.hero-icon {
+	font-size: 4rem;
+	color: #ffffff;
+	margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media ( max-width : 600px) {
+	h1 {
+		font-size: 1.8rem;
+	}
+	.button {
+		padding: 0.6rem 1.2rem;
+		font-size: 0.9rem;
+	}
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="hero-icon">&#128218;</div>
+		<h1>Welcome to Counsellor Portal</h1>
+		<p>Your go-to platform for manage the enquiries of students. Get
+			the students enquiries and filter the enquiries based on Class Mode,
+			Course and enquiry status, and more.</p>
+		<div class="button-group">
+			<a href="/login-form" class="button">Login</a> <a
+				href="/register-form" class="button">Create Account</a>
+		</div>
+		<footer>
+			<p>&copy; 2025</p>
+		</footer>
+	</div>
+</body>
+</html>

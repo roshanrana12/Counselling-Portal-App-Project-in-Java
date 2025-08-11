@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Enquiry</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<style>
+body {
+	background-color: #f8f9fa;
+	font-family: Arial, sans-serif;
+}
+
+.form-container {
+	max-width: 500px;
+	margin: 50px auto;
+	padding: 30px;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.form-container h3 {
+	color: #495057;
+	font-weight: 600;
+}
+
+nav .navbar-brand {
+	font-weight: bold;
+	font-size: 1.25rem;
+}
+
+nav .nav-link {
+	font-size: 1rem;
+	font-weight: 500;
+	color: white !important;
+}
+
+nav .nav-link:hover {
+	color: #ffc107 !important;
+	text-decoration: none;
+}
+
+header {
+	margin-bottom: 2rem;
+}
+
+.footer {
+	text-align: center;
+	padding: 20px;
+	background-color: #343a40;
+	color: white;
+	margin-top: 50px;
+	font-size: 1em;
+}
+
+a {
+	text-decoration: none;
+}
+
+.error {
+	color: red;
+	font-size: 0.9em;
+}
+
+.btn-primary {
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.btn-primary:hover {
+	background-color: #0056b3;
+	border-color: #004085;
+}
+
+@media ( max-width : 576px) {
+	.form-container {
+		padding: 20px;
+	}
+}
+</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Counsellors Portal</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link" href="dashboard">Dashboard</a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link"
+							href="/view-enquiries">View Enquiries</a></li>
+						<li class="nav-item"><a class="nav-link" href="/logout">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="form-container">
+		<h3 class="text-center mb-4">Update Enquiry</h3>
+
+		<form th:action="@{/update-enquiry}" th:object="${enquiry}"
+			method="post">
+			<!-- Display success or error messages -->
+			<div th:if="${smsg}" class="alert alert-success text-center">
+				<p th:text="${smsg}"></p>
+
+			</div>
+			<div th:if="${emsg}" class="alert alert-danger text-center">
+				<p th:text="${emsg}"></p>
+			</div>
+
+			<!-- Name -->
+			<div class="mb-3">
+				<label for="name" class="form-label">Student Name:</label> <input
+					type="text" id="name" class="form-control" th:field="*{stuName}"
+					placeholder="Enter your name" required> <input
+					type="hidden" id="id" class="form-control" th:field="*{enqId}">
+				<p class="error" th:if="${#fields.hasErrors('stuName')}"
+					th:errorclass="error" th:errors="*{stuName}"></p>
+			</div>
+
+			<!-- Contact -->
+			<div class="mb-3">
+				<label for="contact" class="form-label">Contact Number:</label> <input
+					type="number" id="contact" class="form-control"
+					th:field="*{stuPhno}" placeholder="Enter contact number" required>
+				<p class="error" th:if="${#fields.hasErrors('stuPhno')}"
+					th:errorclass="error" th:errors="*{stuPhno}"></p>
+			</div>
+
+			<!-- Class Mode -->
+			<div class="mb-3">
+				<label for="mode" class="form-label">Class Mode:</label> <select
+					id="mode" class="form-select" th:field="*{classMode}" required>
+					<option value="" selected>-Select-</option>
+					<option value="Classroom">Classroom</option>
+					<option value="Online">Online</option>
+				</select>
+			</div>
+
+			<!-- Course -->
+			<div class="mb-3">
+				<label for="course" class="form-label">Course:</label> <select
+					id="course" class="form-select" th:field="*{course}" required>
+					<option value="" selected>-Select-</option>
+					<option value="Java">Java</option>
+					<option value="Python">Python</option>
+					<option value="DevOps">DevOps</option>
+					<option value="C#">C#</option>
+					<option value="C">C</option>
+				</select>
+			</div>
+
+			<!-- Status -->
+			<div class="mb-3">
+				<label for="status" class="form-label">Status:</label> <select
+					id="status" class="form-select" th:field="*{enqStatus}" required>
+					<option value="" selected>-Select-</option>
+					<option value="Open">Open</option>
+					<option value="Enrolled">Enrolled</option>
+					<option value="Lost">Lost</option>
+				</select>
+			</div>
+
+			<!-- Submit Button -->
+			<button type="submit" class="btn btn-success w-100">Update
+				Enquiry</button>
+		</form>
+
+
+	</div>
+
+	<!-- Footer -->
+	<div class="footer">
+		<p>&copy; 2024 Developed by Farhan</p>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
