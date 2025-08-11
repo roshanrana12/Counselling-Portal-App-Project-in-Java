@@ -10,16 +10,16 @@ public class CounsellorDTO {
 
 	private Integer counsellorId;
 
-	@NotEmpty(message = "*Name is mandatory")
+	@NotEmpty(message = "*Name is mandatory*")
 	private String name;
-	@NotEmpty(message = "*Email is mandatory")
-	@Email(message = "*Enter valid email id")
+	@NotEmpty(message = "*Email is mandatory*")
+	@Email(message = "*Enter valid email id*")
 	private String email;
-	@NotEmpty(message = "*Gender is mandatory")
+	@NotEmpty(message = "*Gender is mandatory*")
 	private String gender;
-	@NotNull(message = "*Contact is mandatory")
+	@NotNull(message = "*Contact is mandatory*")
 	private Long phno;
-	@NotEmpty(message = "*Password is mandatory")
+	@NotEmpty(message = "*Password is mandatory*")
 	private String pwd;
 
 }
